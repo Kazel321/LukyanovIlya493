@@ -6,21 +6,20 @@ namespace PerfumeWorld.Classes.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Manufacturer")]
-    public partial class Manufacturer
+    public partial class Status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Manufacturer()
+        public Status()
         {
-            Product = new HashSet<Product>();
+            Order = new HashSet<Order>();
         }
 
-        public int ManufacturerId { get; set; }
+        public int StatusId { get; set; }
 
         [Required]
-        public string ManufacturerName { get; set; }
+        public string StatusName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

@@ -17,3 +17,4 @@ C:\Users\ilyal\Desktop\PerfumeWorld\obj\Debug\PerfumeWorld.FormAuth.resources
 C:\Users\ilyal\Desktop\PerfumeWorld\obj\Debug\PerfumeWorld.FormProduct.resources
 C:\Users\ilyal\Desktop\PerfumeWorld\obj\Debug\PerfumeWorld.FormChangeProduct.resources
 C:\Users\ilyal\Desktop\PerfumeWorld\obj\Debug\PerfumeWorld.FormOrder.resources
+C:\Users\ilyal\Desktop\PerfumeWorld\obj\Debug\PerfumeWorld.csproj.ResolveComReference.cache

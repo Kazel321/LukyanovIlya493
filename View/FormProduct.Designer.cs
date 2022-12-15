@@ -36,6 +36,8 @@
             this.buttonReturn = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanelBottom = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonAddProduct = new System.Windows.Forms.Button();
+            this.buttonShowOrder = new System.Windows.Forms.Button();
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.labelNameCount = new System.Windows.Forms.Label();
             this.labelCost = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.comboBoxCost = new System.Windows.Forms.ComboBox();
             this.comboBoxDiscount = new System.Windows.Forms.ComboBox();
             this.textBoxProductName = new System.Windows.Forms.TextBox();
-            this.buttonAddProduct = new System.Windows.Forms.Button();
-            this.buttonShowOrder = new System.Windows.Forms.Button();
             this.tableLayoutPanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tableLayoutPanelBottom.SuspendLayout();
@@ -126,6 +126,32 @@
             this.tableLayoutPanelBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelBottom.Size = new System.Drawing.Size(1116, 50);
             this.tableLayoutPanelBottom.TabIndex = 1;
+            // 
+            // buttonAddProduct
+            // 
+            this.buttonAddProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAddProduct.Location = new System.Drawing.Point(50, 3);
+            this.buttonAddProduct.Margin = new System.Windows.Forms.Padding(50, 3, 50, 3);
+            this.buttonAddProduct.Name = "buttonAddProduct";
+            this.buttonAddProduct.Size = new System.Drawing.Size(458, 44);
+            this.buttonAddProduct.TabIndex = 0;
+            this.buttonAddProduct.Text = "Добавить товар";
+            this.buttonAddProduct.UseVisualStyleBackColor = true;
+            this.buttonAddProduct.Visible = false;
+            this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
+            // 
+            // buttonShowOrder
+            // 
+            this.buttonShowOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonShowOrder.Location = new System.Drawing.Point(608, 3);
+            this.buttonShowOrder.Margin = new System.Windows.Forms.Padding(50, 3, 50, 3);
+            this.buttonShowOrder.Name = "buttonShowOrder";
+            this.buttonShowOrder.Size = new System.Drawing.Size(458, 44);
+            this.buttonShowOrder.TabIndex = 1;
+            this.buttonShowOrder.Text = "Показать заказ";
+            this.buttonShowOrder.UseVisualStyleBackColor = true;
+            this.buttonShowOrder.Visible = false;
+            this.buttonShowOrder.Click += new System.EventHandler(this.buttonShowOrder_Click);
             // 
             // tableLayoutPanelMain
             // 
@@ -247,7 +273,7 @@
             this.dataGridViewProduct.RowHeadersVisible = false;
             this.dataGridViewProduct.Size = new System.Drawing.Size(1110, 424);
             this.dataGridViewProduct.TabIndex = 6;
-            this.dataGridViewProduct.Click += new System.EventHandler(this.dataGridViewProduct_Click);
+            this.dataGridViewProduct.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewProduct_MouseClick);
             // 
             // ColumnArticle
             // 
@@ -329,32 +355,6 @@
             this.textBoxProductName.Size = new System.Drawing.Size(185, 30);
             this.textBoxProductName.TabIndex = 9;
             this.textBoxProductName.TextChanged += new System.EventHandler(this.filter);
-            // 
-            // buttonAddProduct
-            // 
-            this.buttonAddProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAddProduct.Location = new System.Drawing.Point(50, 3);
-            this.buttonAddProduct.Margin = new System.Windows.Forms.Padding(50, 3, 50, 3);
-            this.buttonAddProduct.Name = "buttonAddProduct";
-            this.buttonAddProduct.Size = new System.Drawing.Size(458, 44);
-            this.buttonAddProduct.TabIndex = 0;
-            this.buttonAddProduct.Text = "Добавить товар";
-            this.buttonAddProduct.UseVisualStyleBackColor = true;
-            this.buttonAddProduct.Visible = false;
-            this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
-            // 
-            // buttonShowOrder
-            // 
-            this.buttonShowOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonShowOrder.Location = new System.Drawing.Point(608, 3);
-            this.buttonShowOrder.Margin = new System.Windows.Forms.Padding(50, 3, 50, 3);
-            this.buttonShowOrder.Name = "buttonShowOrder";
-            this.buttonShowOrder.Size = new System.Drawing.Size(458, 44);
-            this.buttonShowOrder.TabIndex = 1;
-            this.buttonShowOrder.Text = "Показать заказ";
-            this.buttonShowOrder.UseVisualStyleBackColor = true;
-            this.buttonShowOrder.Visible = false;
-            this.buttonShowOrder.Click += new System.EventHandler(this.buttonShowOrder_Click);
             // 
             // FormProduct
             // 
