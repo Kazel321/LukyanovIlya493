@@ -154,22 +154,14 @@ namespace PerfumeWorld
             }
         }
 
+        /// <summary>
+        /// Событие для сортировки, фильтрации и поиска
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void filter(Object sender, EventArgs e)
         {
             updateProduct();
-        }
-
-        private void dataGridViewProduct_Click(object sender, EventArgs e)
-        {
-            if (Helper.Role == Roles.Администратор)
-            {
-                Helper.FormEvent = FormEvents.Редактирование;
-                FormChangeProduct formChangeProduct = new FormChangeProduct(dataGridViewProduct[0, dataGridViewProduct.CurrentRow.Index].Value.ToString());
-                Hide();
-                formChangeProduct.ShowDialog();
-                Show();
-                updateProduct();
-            }
         }
 
         /// <summary>
@@ -194,7 +186,66 @@ namespace PerfumeWorld
         /// <param name="e"></param>
         private void buttonShowOrder_Click(object sender, EventArgs e)
         {
+            FormOrder formOrder = new FormOrder();
+            formOrder.order = order;
+            Hide();
+            formOrder.ShowDialog();
+            order = formOrder.order;
+            if (order.Count == 0) buttonShowOrder.Visible = false;
+            Show();
+        }
 
+        List<OrderProduct> order = new List<OrderProduct>();
+        int rowIndex;
+
+        private void addOrder(object sender, EventArgs e)
+        {
+            buttonShowOrder.Visible = true;
+
+            int ind = order.FindIndex(x => x.ProductArticle == dataGridViewProduct[0, rowIndex].Value.ToString());
+
+            if (ind != -1)
+            {
+                order[ind].OrderProductCount++;
+            }
+            else
+            {
+                OrderProduct orderProduct = new OrderProduct();
+                orderProduct.ProductArticle = dataGridViewProduct[0, rowIndex].Value.ToString();
+                orderProduct.OrderProductCount = 1;
+                order.Add(orderProduct);
+            }
+        }
+
+        /// <summary>
+        /// Отображение контекстного меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewProduct_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                rowIndex = dataGridViewProduct.HitTest(e.X, e.Y).RowIndex;
+
+                ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+
+                contextMenuStrip.Items.Add("Добавить");
+                contextMenuStrip.Items[0].Click += addOrder;
+                contextMenuStrip.Show(dataGridViewProduct, new System.Drawing.Point(e.X, e.Y));
+            }
+            else
+            {
+                if (Helper.Role == Roles.Администратор)
+                {
+                    Helper.FormEvent = FormEvents.Редактирование;
+                    FormChangeProduct formChangeProduct = new FormChangeProduct(dataGridViewProduct[0, dataGridViewProduct.CurrentRow.Index].Value.ToString());
+                    Hide();
+                    formChangeProduct.ShowDialog();
+                    Show();
+                    updateProduct();
+                }
+            }
         }
     }
 }
